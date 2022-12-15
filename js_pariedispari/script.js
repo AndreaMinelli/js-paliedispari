@@ -24,3 +24,39 @@ function isEven(number) {
   if (!(number % 2)) result = true;
   return result;
 }
+
+//Creo una funzione per trovare il radio button selezionato
+
+function radioCheckedValue(radioNodes) {
+  let selectedRadio = "";
+  for (let i = 0; i < radioNodes.length; i++) {
+    const radioNode = radioNodes[i];
+    if (radioNode.checked) selectedRadio = radioNode.value;
+  }
+  return selectedRadio;
+}
+
+//Targhettizzo gli elementi in pagina
+
+const form = document.getElementById("form");
+const userNumber = document.getElementById("user-number");
+const aiNumber = document.getElementById("ai-number");
+const result = document.getElementById("result");
+
+//Aggiungo evento al click
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const userChoice = document.querySelectorAll('input[name = "even-odd"]');
+
+  const userNumberValue = parseInt(userNumber.value);
+
+  if (!userNumberValue || userNumberValue < 0 || userNumberValue > 5) {
+    alert("Devi inserire un numero valido!");
+    return;
+  } else {
+    const radioValue = radioCheckedValue(userChoice);
+    aiNumber.value = getRandomNumber();
+  }
+});
