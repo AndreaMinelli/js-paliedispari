@@ -16,3 +16,27 @@ function isPalindrome(word) {
   if (word === reverseWord) result = true;
   return result;
 }
+
+//Targhettizzo gli elementi nella pagina
+
+const mainForm = document.getElementById("main-form");
+const wordField = document.getElementById("word");
+const resultField = document.getElementById("result");
+
+mainForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const userWord = wordField.value.trim();
+
+  if (!isNaN(userWord)) {
+    alert("Devi inserire una parola da controllare!");
+    wordField.value = "";
+    return;
+  } else {
+    const control = isPalindrome(userWord);
+    let message = `La parola <strong>${userWord}</strong> non è palindroma, provane un'altra.`;
+    if (control)
+      message = `La parola <strong>${userWord}</strong> è palindroma.`;
+    wordField.value = "";
+    resultField.innerHTML = message;
+  }
+});
