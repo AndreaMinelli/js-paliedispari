@@ -57,6 +57,18 @@ form.addEventListener("submit", function (event) {
     return;
   } else {
     const radioValue = radioCheckedValue(userChoice);
-    aiNumber.value = getRandomNumber();
+    const aiNumberValue = getRandomNumber();
+    aiNumber.value = aiNumberValue;
+
+    const sum = aiNumberValue + userNumberValue;
+    let message = "Mi dispiace, ha vinto il computer.";
+    if (
+      (isEven(sum) && radioValue === "even") ||
+      (!isEven(sum) && radioValue === "odd")
+    ) {
+      message = "Complimenti, HAI VINTO!";
+    }
+
+    result.innerText = message;
   }
 });

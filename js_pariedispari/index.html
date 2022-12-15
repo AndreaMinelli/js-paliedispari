@@ -16,8 +16,8 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <main>
-      <form id="form" class="p-5">
+    <main class="p-5">
+      <form id="form">
         <div class="mb-3">
           <label for="even">Scegli pari</label>
           <input
@@ -26,6 +26,7 @@
             id="even"
             value="even"
             class="me-5"
+            checked
           />
           <label for="odd"> Scegli dispari </label>
           <input type="radio" name="even-odd" id="odd" value="odd" />
@@ -42,7 +43,7 @@
         </div>
         <button class="mt-4">Gioca!</button>
       </form>
-      <div id="result"></div>
+      <div id="result" class="mt-4"></div>
     </main>
   </body>
 </html>
