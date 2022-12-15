@@ -17,4 +17,10 @@ function getRandomNumber(min = 1, max = 5) {
   return randomNumber;
 }
 
-getRandomNumber();
+//Creo una funzione per verificare che la somma sia pari o dispari
+
+function isEven(number) {
+  let result = false;
+  if (!(number % 2)) result = true;
+  return result;
+}
